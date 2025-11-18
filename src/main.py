@@ -26,7 +26,7 @@ def count_vowels(text: str) -> int:
 
 
 def calculate_discount(price: float, discount: float) -> float:
-    if not 0 < discount < 1:
+    if not 0 <= discount <= 1:
         raise ValueError
     return price * (1 - discount)
 
