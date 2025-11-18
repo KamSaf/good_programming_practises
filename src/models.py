@@ -1,30 +1,30 @@
 class Movie:
-    def __init__(self, movie_id: int, title: str, genres: str) -> None:
-        movie_id = movie_id
-        title = title
-        genres = genres
+    def __init__(self, movie_id: str, title: str, genres: str) -> None:
+        self.movie_id = int(movie_id)
+        self.title = title
+        self.genres = genres
 
 
 class Link:
-    def __init__(self, movie_id: int, imdb_id: int, tmdb_id: int) -> None:
-        movie_id = movie_id
-        imdb_id = imdb_id
-        tmdb_id = tmdb_id
+    def __init__(self, movie_id: str, imdb_id: str, tmdb_id: str) -> None:
+        self.movie_id = int(movie_id)
+        self.imdb_id = int(imdb_id) if imdb_id else None
+        self.tmdb_id = int(tmdb_id) if tmdb_id else None
 
 
 class Rating:
     def __init__(
-        self, user_id: int, movie_id: int, rating: float, timestamp: int
+        self, user_id: str, movie_id: str, rating: str, timestamp: str
     ) -> None:
-        user_id = user_id
-        movie_id = movie_id
-        rating = rating
-        timestamp = timestamp
+        self.user_id = int(user_id)
+        self.movie_id = int(movie_id)
+        self.rating = float(rating)
+        self.timestamp = int(timestamp)
 
 
 class Tag:
-    def __init__(self, user_id: int, movie_id: int, tag: str, timestamp: int) -> None:
-        user_id = user_id
-        movie_id = movie_id
-        tag = tag
-        timestamp = timestamp
+    def __init__(self, user_id: str, movie_id: str, tag: str, timestamp: str) -> None:
+        self.user_id = int(user_id)
+        self.movie_id = int(movie_id)
+        self.tag = tag
+        self.timestamp = int(timestamp)
