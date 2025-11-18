@@ -7,12 +7,12 @@ class TestPalindrome:
         assert is_palindrome(test_string) is True
 
     def test_kobyla(self):
-        test_string = "kobyla"
+        test_string = "Kobyła ma mały bok"
         assert is_palindrome(test_string) is True
 
     def test_python(self):
         test_string = "python"
-        assert is_palindrome(test_string) is True
+        assert is_palindrome(test_string) is False
 
     def test_empty(self):
         test_string = ""
