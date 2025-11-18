@@ -46,6 +46,8 @@ def word_frequencies(text: str) -> dict:
     words_dict = {}
     split_text = map(lambda w: w.translate(translator).lower().strip(), text.split(" "))
     for word in split_text:
+        if not word:
+            continue
         if word in words_dict:
             words_dict[word] += 1
         else:
