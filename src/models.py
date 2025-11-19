@@ -14,7 +14,11 @@ class Movie(Base):
     genres: Mapped[str] = mapped_column(String(50))
 
     def __repr__(self) -> str:
-        return f"Movie(id={self.id!r}, title={self.title!r}, genres={self.genres!r})"
+        return f"""
+            Movie(id={self.id!r},
+            title={self.title!r},
+            genres={self.genres!r})
+        """
 
 
 class Link(Base):
@@ -25,7 +29,12 @@ class Link(Base):
     tmdb_id: Mapped[Optional[int]] = mapped_column(Integer)
 
     def __repr__(self) -> str:
-        return f"Link(id={self.id!r}, movie_id={self.movie_id!r}, imdb_id={self.imdb_id!r}, tmdb_id={self.tmdb_id!r})"
+        return f"""
+            Link(id={self.id!r},
+            movie_id={self.movie_id!r},
+            imdb_id={self.imdb_id!r},
+            tmdb_id={self.tmdb_id!r})
+        """
 
 
 class Rating(Base):
@@ -37,7 +46,13 @@ class Rating(Base):
     timestamp: Mapped[int] = mapped_column(Integer)
 
     def __repr__(self) -> str:
-        return f"Rating(id={self.id!r}, user_id={self.user_id!r}, movie_id={self.movie_id!r}, rating={self.rating!r}, timestamp={self.timestamp!r})"
+        return f"""
+            Rating(id={self.id!r},
+            user_id={self.user_id!r},
+            movie_id={self.movie_id!r},
+            rating={self.rating!r},
+            timestamp={self.timestamp!r})
+        """
 
 
 class Tag(Base):
@@ -49,4 +64,10 @@ class Tag(Base):
     timestamp: Mapped[int] = mapped_column(Integer)
 
     def __repr__(self) -> str:
-        return f"Tag(id={self.id!r}, user_id={self.user_id!r}, movie_id={self.movie_id!r}, tag={self.tag!r}, timestamp={self.timestamp!r})"
+        return f"""
+            Tag(id={self.id!r},
+            user_id={self.user_id!r},
+            movie_id={self.movie_id!r},
+            tag={self.tag!r},
+            timestamp={self.timestamp!r})
+        """
