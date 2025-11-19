@@ -1,9 +1,14 @@
 from fastapi import FastAPI
-from src import routes
+from src.routes.movies import router as rm
+from src.routes.links import router as rl
+from src.routes.ratings import router as rr
+from src.routes.tags import router as rt
+
 
 app = FastAPI()
 
-app.include_router(routes.router)
+for router in (rm, rl, rr, rt):
+    app.include_router(router)
 
 
 @app.get("/")
