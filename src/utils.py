@@ -1,7 +1,9 @@
 import csv
+from typing import Sequence
 from sqlalchemy.orm import Session
 from src.config import ROOT, engine
 from src.models import Movie, Link, Rating, Tag
+from sqlalchemy import select
 
 
 def read_csv(filename: str) -> list[list[str]]:
@@ -63,3 +65,31 @@ def load_tags(filename: str = "tags.csv"):
         ]
         session.add_all(tags)
         session.commit()
+
+
+def get_all_movies() -> Sequence[Movie]:
+    stmt = select(Movie)
+    with Session(engine) as session:
+        result = session.scalars(stmt)
+        return result.all()
+
+
+def get_all_links() -> Sequence[Link]:
+    stmt = select(Link)
+    with Session(engine) as session:
+        result = session.scalars(stmt)
+        return result.all()
+
+
+def get_all_ratings() -> Sequence[Rating]:
+    stmt = select(Rating)
+    with Session(engine) as session:
+        result = session.scalars(stmt)
+        return result.all()
+
+
+def get_all_tags() -> Sequence[Tag]:
+    stmt = select(Tag)
+    with Session(engine) as session:
+        result = session.scalars(stmt)
+        return result.all()
