@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from src.utils import get_all_links
+from src.queries.links import get_all_links
 
 router = APIRouter(prefix="/links")
 

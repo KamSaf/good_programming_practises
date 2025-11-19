@@ -1,6 +1,9 @@
 from src.config import engine
 from src.models import Base
-from src.utils import load_movies, load_links, load_ratings, load_tags
+from src.queries.movies import load_movies
+from src.queries.links import load_links
+from src.queries.ratings import load_ratings
+from src.queries.tags import load_tags
 
 
 try:

@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from src.utils import get_all_tags
+from src.queries.tags import get_all_tags
 
 router = APIRouter(prefix="/tags")
 

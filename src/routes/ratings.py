@@ -1,5 +1,5 @@
 from fastapi import APIRouter
-from src.utils import get_all_ratings
+from src.queries.ratings import get_all_ratings
 
 router = APIRouter(prefix="/ratings")
 
