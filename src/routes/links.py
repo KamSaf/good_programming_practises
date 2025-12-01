@@ -12,7 +12,7 @@ from src.queries.links import (
 router = APIRouter(prefix="/links")
 
 
-@router.get("/")
+@router.get("/", status_code=200)
 def get_links(db: Session = Depends(get_db)) -> dict:
     links = get_all_links(db)
     return {"links": map(lambda m: m.to_dict(), links)}

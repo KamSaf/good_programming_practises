@@ -26,8 +26,8 @@ class Link(Base):
     __tablename__ = "link"
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     movie_id: Mapped[int] = mapped_column(ForeignKey("movie.id"))
-    imdb_id: Mapped[Optional[int]] = mapped_column(Integer)
-    tmdb_id: Mapped[Optional[int]] = mapped_column(Integer)
+    imdb_id: Mapped[Optional[str]] = mapped_column(String)
+    tmdb_id: Mapped[Optional[str]] = mapped_column(String)
 
     def __repr__(self) -> str:
         return f"""

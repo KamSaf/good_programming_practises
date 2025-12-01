@@ -9,8 +9,8 @@ def load_links(db: Session, filename: str = "links.csv"):
     links = [
         Link(
             movie_id=movie_id,
-            imdb_id=int(imdb_id) if imdb_id else None,
-            tmdb_id=int(tmdb_id) if tmdb_id else None,
+            imdb_id=imdb_id,
+            tmdb_id=tmdb_id,
         )
         for [movie_id, imdb_id, tmdb_id] in read_csv(filename)
     ]
