@@ -86,5 +86,5 @@ def test_delete_link(session):
     id = 4
     response = client.delete(f"/links/{id}")
     assert response.status_code == 200
-    new_movie = get_link_by_id(id, session)
-    assert new_movie is None
+    new_rating = get_link_by_id(id, session)
+    assert new_rating is None
