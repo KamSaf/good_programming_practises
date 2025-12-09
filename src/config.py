@@ -1,7 +1,13 @@
+import os
 from pathlib import Path
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
+from dotenv import load_dotenv
 
+load_dotenv()
+
+SECRET_KEY = os.getenv("SECRET_KEY")
+HASH_ALGORITHM = "HS256"
 ROOT = Path(__file__).parent.parent
 SQLALCHEMY_DATABASE_URL = "sqlite:///database.db"
 

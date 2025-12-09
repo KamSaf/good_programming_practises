@@ -72,3 +72,10 @@ class Tag(Base):
             tag={self.tag!r},
             timestamp={self.timestamp!r})
         """
+
+
+class User(Base):
+    __tablename__ = "user"
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    username: Mapped[String] = mapped_column(String(50))
+    password: Mapped[String] = mapped_column(String(150))
