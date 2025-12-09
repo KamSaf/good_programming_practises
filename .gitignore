@@ -1,0 +1,6 @@
+venv
+__pycache__
+queue.db
+db
+.env
+database.db
