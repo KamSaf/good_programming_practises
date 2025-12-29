@@ -5,3 +5,5 @@ uvicorn
 sqlalchemy
 httpx
 dotenv
+python-jose
+bcrypt

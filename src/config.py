@@ -6,8 +6,11 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-SECRET_KEY = os.getenv("SECRET_KEY")
-HASH_ALGORITHM = "HS256"
+SECRET_KEY = os.getenv("SECRET_KEY", "SECRET_KEY")
+HASH_ALGORITHM = os.getenv("HS256", "HS256")
+ADMIN_USERNAME = os.getenv("ADMIN_USERNAME", "admin")
+ADMIN_PASSWORD = os.getenv("ADMIN_PASSWORD", "admin123")
+
 ROOT = Path(__file__).parent.parent
 SQLALCHEMY_DATABASE_URL = "sqlite:///database.db"
 

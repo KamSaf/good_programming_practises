@@ -1,6 +1,8 @@
 import csv
-from src.config import ROOT
-from src.models import Movie, Link, Rating, Tag
+import bcrypt
+from sqlalchemy.orm import Session
+from src.config import ROOT, ADMIN_USERNAME, ADMIN_PASSWORD
+from src.models import Movie, Link, Rating, Tag, User
 
 
 def read_csv(filename: str) -> list[list[str]]:
@@ -50,3 +52,20 @@ def parse_tag_data(tag_data: dict) -> Tag:
         )
     except Exception as e:
         raise e
+
+
+def create_admin(db: Session) -> User:
+    existing = db.query(User).filter(User.username == ADMIN_USERNAME).first()
+    if existing:
+        return existing
+
+    hashed_pw = bcrypt.hashpw(ADMIN_PASSWORD.encode("utf-8"), bcrypt.gensalt()).decode(
+        "utf-8"
+    )
+
+    admin = User(username=ADMIN_USERNAME, password_hash=hashed_pw, roles="ROLE_ADMIN")
+
+    db.add(admin)
+    db.commit()
+    db.refresh(admin)
+    return admin
